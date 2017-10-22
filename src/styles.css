@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global style */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    overflow: hidden;
+}
+
+
+/* Global heading style starts */
+h1 {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 34px;
+}
+
+h3 {
+    margin-bottom: 28px;
+}
+/* Global heading style ends */
+
+
+/* Global table style starts */
+table {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+    border: 0px;
+}
+
+th {
+    color: rgba(0,0,0,.87) !important;
+}
+
+th, td {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: left;
+    vertical-align: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0,0,0,.12);
+}
+
+tbody > tr:hover {
+    background: #E7E7E7;
+    cursor: pointer;
+}
+
+tbody > tr:active {
+    background: #CFCFCF;
+    cursor: pointer;
+}
+/* Global table style ends */
