@@ -38,9 +38,11 @@ h3 {
 /* Global table style starts */
 table {
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
-    width: 100%;
-    max-width: 100%;
+    width: fit-content;
+    float: left;
+    /*max-width: 100%;*/
     margin-bottom: 2rem;
+    margin-right: 2rem;
     border-collapse: collapse;
     border: 0px;
 }
@@ -70,4 +72,60 @@ tbody > tr:active {
     background: #CFCFCF;
     cursor: pointer;
 }
+
+.mini-card {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    padding: 28px;
+    float: left;
+    max-width: 280px;
+    min-width: 280px;
+    text-align: left;
+}
+
+.card {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    padding: 28px;
+    float: left;
+    text-align: left;
+    min-width: 600px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container > * {
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.form-label {
+    display: block;
+}
+
+.form-info {
+    display: block;
+}
+
+.card-button {
+    margin-top: 2rem;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 10px;
+}
+
+.fab-button {
+    position: fixed;
+    z-index: 10;
+    right: 20px;
+    bottom: 20px;
+}
+
 /* Global table style ends */

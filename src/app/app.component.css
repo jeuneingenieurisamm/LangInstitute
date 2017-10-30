@@ -78,6 +78,7 @@ mat-sidenav::-webkit-scrollbar-thumb
 }
 
 .content{
+    width: fit-content;
     padding: 40px;
     position: fixed;
     overflow-y: auto;
@@ -92,6 +93,6 @@ mat-sidenav::-webkit-scrollbar-thumb
 
 .content::-webkit-scrollbar-thumb
 {
-    background-color: #424242;
+    background-color: white;/*#424242;*/
     border: 3px solid white;
 }

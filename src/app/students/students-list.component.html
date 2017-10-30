@@ -1,1 +1,84 @@
-<h2>Students List Component</h2>
+<h2>Students List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                #ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                Phone
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students" (click)="handleRowClick(student)">
+            <td>
+                {{student.id}}
+            </td>
+            <td>
+                {{student.fullName}}
+            </td>
+            <td>
+                {{student.email}}
+            </td>
+            <td>
+                {{student.telNumber}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="mini-card" *ngIf="selectedStudent">
+    <h2>{{selectedStudent.fullName}}</h2>
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Birth Date</strong>
+        </label>
+        <span class="form-info">{{selectedStudent.birthDate | date:"MM/dd/yyyy"}}</span>
+    </div>
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Adress</strong>
+        </label>
+        <span class="form-info">{{selectedStudent.adress}}</span>
+    </div>
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Phone</strong>
+        </label>
+        <span class="form-info">{{selectedStudent.telNumber}}</span>
+    </div>
+    <div class="form-group">
+        <label class="form-label">
+            <strong>E-mail</strong>
+        </label>
+        <span class="form-info">{{selectedStudent.email}}</span>
+    </div>
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Courses</strong>
+        </label>
+        <ul *ngFor="let course of selectedStudent.courses">
+            <li>{{course.label}}</li>
+        </ul>
+    </div>
+
+    <div class="card-button">
+        <button mat-raised-button color="primary">Update</button>
+        <button mat-raised-button color="primary">Delete</button>
+        <button mat-raised-button color="primary" (click)="closeDetailsCard()">Close</button>
+    </div>
+</div>
+
+<div class="fab-button">
+    <button mat-fab color="accent">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

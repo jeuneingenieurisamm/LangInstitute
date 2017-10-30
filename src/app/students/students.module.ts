@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
 
 import { StudentsRoutingModule } from './students-routing.module';
+
+import { MatButtonModule, MatIconModule } from '@angular/material';
 
 import { StudentsUpdateComponent } from './students-update.component';
 import { StudentsAddComponent } from './students-add.component';
 import { StudentsListComponent } from './students-list.component';
 import { StudentsComponent } from './students.component';
+
+import { StudentsService } from './students.service';
 
 
 @NgModule({
@@ -19,13 +25,17 @@ import { StudentsComponent } from './students.component';
     imports: [
         // Every external or feature module should be mentioned in the imports array
         // We have the StudentsRoutingModule that adds the routing configuration to this module
-        StudentsRoutingModule
+        StudentsRoutingModule,
+        HttpModule,
+        CommonModule,
+        MatButtonModule,
+        MatIconModule
     ],
     exports: [
 
     ],
     providers: [
-
+        StudentsService
     ]
 })
 export class StudentsModule {

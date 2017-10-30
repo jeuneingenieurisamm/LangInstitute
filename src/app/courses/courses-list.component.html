@@ -1,1 +1,98 @@
-<h2>Courses List Component</h2>
+<h2>Courses List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                #ID
+            </th>
+            <th>
+                Course Label
+            </th>
+            <th>
+                Language
+            </th>
+            <th>
+                Level
+            </th>
+            <th>
+                Session
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of courses" (click)="handleRowSelect(course)">
+            <td>
+                {{course.id}}
+            </td>
+            <td>
+                {{course.label}}
+            </td>
+            <td>
+                {{course.language}}
+            </td>
+            <td>
+                {{course.level}}
+            </td>
+            <td>
+                {{course.session}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="mini-card" *ngIf="selectedCourse">
+    <h3>{{selectedCourse.label}}</h3>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Language</strong>
+        </label>
+        <span class="form-info">{{selectedCourse.language}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Level</strong>
+        </label>
+        <span class="form-info">{{selectedCourse.level}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Session</strong>
+        </label>
+        <span class="form-info">{{selectedCourse.session}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>From</strong>
+        </label>
+        <span class="form-info">{{selectedCourse.startDate | date : "MM/dd/yyyy"}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>To</strong>
+        </label>
+        <span class="form-info">{{selectedCourse.finishDate | date : "MM/dd/yyyy"}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Price</strong>
+        </label>
+        <span class="form-info">{{selectedCourse.price}}</span>
+    </div>
+
+    <div class="card-button">
+        <button mat-raised-button color="primary">Update</button>
+        <button mat-raised-button color="primary">Delete</button>
+        <button mat-raised-button color="primary" (click)="closeDetailCard()">Close</button>
+    </div>
+</div>
+
+<div class="fab-button">
+    <button mat-fab color="accent"><mat-icon>add</mat-icon></button>
+</div>
