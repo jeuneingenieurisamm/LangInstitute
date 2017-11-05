@@ -1,3 +1,86 @@
-<h2>
-    Students Update Component
-</h2>
+<h2>Update Student</h2>
+
+<div class="card" *ngIf="!submitted">
+
+    <form class="form-container" #updateStudentForm="ngForm">
+        
+        <mat-form-field>
+            <input matInput type="text" placeholder="Full Name" [(ngModel)]="model.fullName" name="fullName" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Tel. Number" [(ngModel)]="model.telNumber" name="telNumber" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="email" placeholder="E-mail" [(ngModel)]="model.email" name="email" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Adress" [(ngModel)]="model.adress" name="adress" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="date" placeholder="Birth date" [(ngModel)]="model.birthDate" name="birthDate" required>
+        </mat-form-field>
+
+        <label class="form-title">Available Courses</label>
+
+        <mat-checkbox *ngFor="let course of availableCourses" (change)="checkedBox(course,$event)" [checked]="searchCourse(course) ? true : false">{{course.label}}</mat-checkbox>
+
+        <div class="card-button">
+            <button mat-raised-button color="primary" (click)="updateStudent()" [disabled]="!updateStudentForm.form.valid">Update</button>
+            <button mat-raised-button (click)="goBack()">Cancel</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="card" *ngIf="submitted">
+
+    <h2>Student {{updatedStudent.fullName}} is successfully updated!</h2>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Birth Date</strong>
+        </label>
+        <span class="form-info">{{updatedStudent.birthDate | date:"MM/dd/yyyy"}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Adress</strong>
+        </label>
+        <span class="form-info">{{updatedStudent.adress}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Phone</strong>
+        </label>
+        <span class="form-info">{{updatedStudent.telNumber}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>E-mail</strong>
+        </label>
+        <span class="form-info">{{updatedStudent.email}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Courses</strong>
+        </label>
+        <ul *ngFor="let course of updatedStudent.courses">
+            <li>{{course.label}}</li>
+        </ul>
+    </div>
+
+    <div class="card-button">
+        <button mat-raised-button color="primary" (click)="updateAgain()">Update</button>
+        <button mat-raised-button (click)="goBack()">Back</button>
+    </div>
+
+</div>

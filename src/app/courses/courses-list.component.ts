@@ -1,4 +1,5 @@
 import { Component , OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Course } from './course.model';
 
@@ -13,7 +14,8 @@ export class CoursesListComponent implements OnInit {
     selectedCourse: Course;
 
     constructor(
-        private coursesService: CoursesService
+        private coursesService: CoursesService,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -33,11 +35,39 @@ export class CoursesListComponent implements OnInit {
     }
 
     handleRowSelect(course: Course): void {
+
         this.selectedCourse = course;
+
     }
 
     closeDetailCard(): void {
+
         this.selectedCourse = null;
+
+    }
+
+    navigateToUpdateCourse(): void {
+
+        this.router.navigate(['/courses/update-course' , this.selectedCourse.id]);
+
+    }
+
+    deleteCourse(): void {
+
+        this.coursesService.deleteCourse(this.selectedCourse.id)
+                           .subscribe(
+                               (res) => {this.selectedCourse = null;
+                                         this.getCourses();
+                                         console.log('Course deleted successfully!'); },
+                               (err) => {console.log(err); }
+                           );
+
+    }
+
+    navigateToAddCourse(): void {
+
+        this.router.navigate(['/courses/add-course']);
+
     }
 
 }

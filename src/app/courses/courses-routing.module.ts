@@ -63,7 +63,7 @@ const coursesRoutes: Routes = [
                 component: CoursesAddComponent   // => this child component will be displayed inside <router-link></router-link>
             },
             {
-                path: 'update-course',
+                path: 'update-course/:id',
                 component: CoursesUpdateComponent   // => this child component will be displayed inside <router-link></router-link>
             }
         ]

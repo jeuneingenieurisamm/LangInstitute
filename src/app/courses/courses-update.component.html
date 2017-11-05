@@ -1,1 +1,109 @@
-<h2>Courses Update Component</h2>
+<h2>Update Course</h2>
+
+<div class="card" *ngIf="!submitted">
+
+    <form class="form-container" #updateCourseForm="ngForm">
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Label" [(ngModel)]="model.label" name="label" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Language" [(ngModel)]="model.language" name="language" required>
+                <mat-option *ngFor="let language of languages" [value]="language.value">
+                    {{language.view}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Level" [(ngModel)]="model.level" name="level" required>
+                <mat-option *ngFor="let level of levels" [value]="level">
+                    {{level}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Session" [(ngModel)]="model.session" name="session" required>
+                <mat-option *ngFor="let session of sessions" [value]="session.value">
+                    {{session.view}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="row">
+            <mat-form-field>
+                <input matInput type="date" placeholder="From"  [(ngModel)]="model.startDate" name="startDate" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="date" placeholder="To"  [(ngModel)]="model.finishDate" name="finishDate" required>
+            </mat-form-field>
+        </div>
+        
+        <mat-form-field>
+            <input matInput type="number" placeholder="Price"  [(ngModel)]="model.price" name="price" required>
+        </mat-form-field>
+
+        <div class="card-button">
+            <button mat-raised-button color="primary" type="button" (click)="updateCourse()" [disabled]="updateCourseForm.form.invalid">Update</button>
+            <button mat-raised-button type="button" (click)="goBack()">Cancel</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="card" *ngIf="submitted">
+    
+    <h2>Course {{updatedCourse.label}} updated successfully</h2>
+    
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Language</strong>
+        </label>
+        <span class="form-info">{{updatedCourse.language}}</span>
+    </div>
+    
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Level</strong>
+        </label>
+        <span class="form-info">{{updatedCourse.level}}</span>
+    </div>
+    
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Session</strong>
+        </label>
+        <span class="form-info">{{updatedCourse.session}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>From</strong>
+        </label>
+        <span class="form-info">{{updatedCourse.startDate  | date:"MM/dd/yyyy"}}</span>
+    </div>
+        
+    <div class="form-group">
+        <label class="form-label">
+            <strong>To</strong>
+        </label>
+        <span class="form-info">{{updatedCourse.finishDate  | date:"MM/dd/yyyy"}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Price</strong>
+        </label>
+        <span class="form-info">{{updatedCourse.price}}</span>
+    </div>
+
+    <div class="card-button">
+        <button mat-raised-button color="primary" (click)="reset()">Update Again</button>
+        <button mat-raised-button (click)="goBack()">Back</button>
+    </div>
+
+</div>

@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { CoursesRoutingModule } from './courses-routing.module';
 
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule , MatIconModule , MatFormFieldModule , MatInputModule , MatSelectModule } from '@angular/material';
 
 import { CoursesUpdateComponent } from './courses-update.component';
 import { CoursesAddComponent } from './courses-add.component';
 import { CoursesListComponent } from './courses-list.component';
 import { CoursesComponent } from './courses.component';
-
-import { CoursesService } from './courses.service';
 
 
 @NgModule({
@@ -28,14 +27,18 @@ import { CoursesService } from './courses.service';
         CoursesRoutingModule,
         CommonModule,
         HttpModule,
+        FormsModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule
     ],
     exports: [
 
     ],
     providers: [
-        CoursesService
+
     ]
 })
 export class CoursesModule {

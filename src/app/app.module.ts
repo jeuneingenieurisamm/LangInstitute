@@ -1,3 +1,5 @@
+import { HttpModule } from '@angular/http';
+import { CoursesService } from './courses/courses.service';
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,9 +29,12 @@ import { AppComponent } from './app.component';
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    CoursesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

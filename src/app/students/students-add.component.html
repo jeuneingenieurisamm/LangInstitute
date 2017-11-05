@@ -1,1 +1,90 @@
-<h2>Students Add Component</h2>
+<h2>Add Student</h2>
+
+<div class="card" *ngIf="!submitted">
+
+    <form class="form-container" #addStudentForm="ngForm">
+        
+        <mat-form-field>
+            <input matInput type="number" placeholder="ID" [(ngModel)]="model.id" name="id" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Full Name" [(ngModel)]="model.fullName" name="fullName" required>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput type="text" placeholder="Tel. Number" [(ngModel)]="model.telNumber" name="telNumber" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="email" placeholder="E-mail" [(ngModel)]="model.email" name="email" required>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput type="text" placeholder="Adress" [(ngModel)]="model.adress" name="adress" required>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput type="date" placeholder="Birth Date" [(ngModel)]="model.birthDate" name="birthDate" required>
+        </mat-form-field>
+
+        <label class="form-title">Available Courses</label>
+
+        <mat-checkbox *ngFor="let course of availableCourses" (change)="checkedBox(course,$event)">{{course.label}}</mat-checkbox>
+
+        <div class="card-button">
+            <button type="button" mat-raised-button color="primary" (click)="addStudent()" [disabled]="addStudentForm.form.invalid">Add</button>
+            <button type="button" mat-raised-button (click)="goBack()">Cancel</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="card" *ngIf="submitted">
+
+    <h2>Student {{addedStudent.fullName}} is successfully added!</h2>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Birth Date</strong>
+        </label>
+        <span class="form-info">{{addedStudent.birthDate | date:"MM/dd/yyyy"}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Adress</strong>
+        </label>
+        <span class="form-info">{{addedStudent.adress}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Phone</strong>
+        </label>
+        <span class="form-info">{{addedStudent.telNumber}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>E-mail</strong>
+        </label>
+        <span class="form-info">{{addedStudent.email}}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <strong>Courses</strong>
+        </label>
+        <ul *ngFor="let course of addedStudent.courses">
+            <li>{{course.label}}</li>
+        </ul>
+    </div>
+
+    <div class="card-button">
+        <button mat-raised-button color="primary" (click)="reset()">Add Another</button>
+        <button mat-raised-button (click)="goBack()">Back</button>
+    </div>
+
+</div>

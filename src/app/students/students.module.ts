@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { StudentsRoutingModule } from './students-routing.module';
 
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatIconModule , MatFormFieldModule , MatInputModule , MatCheckboxModule } from '@angular/material';
 
 import { StudentsUpdateComponent } from './students-update.component';
 import { StudentsAddComponent } from './students-add.component';
@@ -29,7 +30,11 @@ import { StudentsService } from './students.service';
         HttpModule,
         CommonModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatCheckboxModule,
+        FormsModule
     ],
     exports: [
 

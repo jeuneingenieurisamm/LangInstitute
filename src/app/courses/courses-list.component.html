@@ -87,12 +87,14 @@
     </div>
 
     <div class="card-button">
-        <button mat-raised-button color="primary">Update</button>
-        <button mat-raised-button color="primary">Delete</button>
+        <button mat-raised-button color="primary" (click)="navigateToUpdateCourse()">Update</button>
+        <button mat-raised-button color="primary" (click)="deleteCourse()">Delete</button>
         <button mat-raised-button color="primary" (click)="closeDetailCard()">Close</button>
     </div>
 </div>
 
 <div class="fab-button">
-    <button mat-fab color="accent"><mat-icon>add</mat-icon></button>
+    <button mat-fab color="accent" (click)="navigateToAddCourse()">
+        <mat-icon>add</mat-icon>
+    </button>
 </div>
